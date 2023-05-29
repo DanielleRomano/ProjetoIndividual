@@ -1,0 +1,95 @@
+.body-login {
+    background-color: #62C1F3;
+}
+
+.login {
+    background-color: white;
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    margin-left: 160px;
+    margin-top: 35px;
+}
+
+.log {
+    position: absolute;
+    width: 334px;
+    height: 46px;
+    left: 392px;
+    bottom: 550px;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.email-form-log {
+    position: absolute;
+    width: 173px;
+    height: 38px;
+    left: 248px;
+    top: 240px;
+    font-size: 28px;
+}
+
+.input-email-log {
+    position: absolute;
+    width: 467px;
+    height: 40px;
+    left: 244px;
+    top: 280px;
+    background: #A1E394;
+    border-radius: 40px;
+    border: none;
+}
+
+.senha-form-log {
+    position: absolute;
+    width: 173px;
+    height: 38px;
+    left: 248px;
+    top: 380px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+}
+
+.input-senha-log {
+    position: absolute;
+    width: 467px;
+    height: 40px;
+    left: 244px;
+    top: 420px;
+    background: #A1E394;
+    border-radius: 40px;
+    border: none;
+}
+
+.button-login {
+    position: absolute;
+    width: 244px;
+    height: 57px;
+    left: 342px;
+    top: 520px;
+    color: white;
+    font-size: 30px;
+    background: #2B9746;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-login:hover {
+    opacity: 0.8;
+    
+}
+
+.text-cadastrar {
+    position: absolute;
+    width: 345px;
+    height: 32px;
+    left: 340px;
+    top: 580px;
+    font-size: 14px;
+}

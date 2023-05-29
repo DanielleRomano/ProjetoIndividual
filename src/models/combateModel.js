@@ -18,11 +18,11 @@ function combate(idCombatente) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select (cargaPoder - cargaPoderVilao) from combatente join vilao on idVilao = fkVilao
+        instrucaoSql = `select cargaPoder, poderCargaVilao from combatente join vilao on idVilao = fkVilao
         where combatente.idCombatente = ${idCombatente};`
                     
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select cargaPoder, cargaPoderVilao from combatente join vilao on idVilao = fkVilao
+        instrucaoSql = `select cargaPoder, poderCargaVilao from combatente join vilao on idVilao = fkVilao
         where combatente.idCombatente = ${idCombatente};`
 
     } else {

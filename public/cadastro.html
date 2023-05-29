@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="cadastro.css"/>
     <link href="/Projeto-Individual/public/js/funcoes.js">
     <title>Cadastro</title>
 </head>
@@ -47,8 +48,6 @@
             <form class="form-cadastro">
                 <span class="nome-form">Nome Completo:</span>
                 <input id="input_nome" class="input-nome" required>
-                <span class="dtnasc-form">Data de nascimento:</span>
-                <input id="input_dtnasc" class="input-dtnasc" type="date" required>
                 <span class="email-form">E-mail:</span>
                 <input id="input_email"  class="input-email" required>
                 <span class="senha-form">Senha:</span>
@@ -72,11 +71,10 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = input_nome.value;
-        var dataVar = input_dtnasc.value;
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
 
-        if (nomeVar == "" || dataVar == "" ||emailVar == "" || senhaVar == "") {
+        if (nomeVar == ""||emailVar == "" || senhaVar == "") {
             alert("Preencha todos os campos");
             return false;
         }
@@ -91,7 +89,6 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                dataServer: dataVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
             })
