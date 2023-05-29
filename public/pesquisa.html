@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/83c9b26057.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="path/to/chartjs/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="style.css"/><title>Pesquisa</title>
+</head>
+<body class="body-pesquisa">
+    <header>
+        <nav>
+        <a href="./index.html">
+            <img class="logo" src="./imgs/header.PNG">
+        </a>
+        <ul class="nav-list">
+            <li><a href="./index.html">Ínicio</a></li></a>
+            <li><a href="#section_sobre">Sobre</a></li></a>
+            <li><a href="#section_jogos">Jogos</a></li></a>
+            <li><a href="#section_carrossel">Personagens</a></li></a>
+            <li><a href="cadastro.html" class="client"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <section class="section-pesquisa">
+        <div class="title-pesquisa">
+            <b class="title-combate">Combate</b>
+        </div>
+        <div class="img-pesquisa">
+            <img src="./imgs/pesquisa.jpg" class="imagem-pesquisa">
+        </div>
+        <div id="div_pesquisa">
+            <div class="title-qtd-poder">
+                <b>Qual será a quantidade de poder?</b>
+            </div>
+            <input id="valorPoder" placeholder="Quantidade de poder" class="inpt-poder" type="number">
+            <button onclick="inserirPoder()" class="btn-poder">Carregar poder</button>
+            <div class="title-escolha">
+                <b>Escolha sua personagem para combate</b>
+            </div>
+        <div id="combatentes" class="div-combatentes">
+            <button class="btn-combatente1" onclick="obterDadosGrafico(1)" id="btnCombatente1">Lindinha</button>
+            <button class="btn-combatente2" onclick="obterDadosGrafico(2)" id="btnCombatente2">Florzinha</button>
+            <button class="btn-combatente3" onclick="obterDadosGrafico(3)" id="btncombatente3">Docinho</button>
+            <button class="btn-combatente4" onclick="obterDadosGrafico(4)" id="btncombatente4">Você mesmo</button>
+
+        </div>
+        </div>
+    </div>
+
+    
+    <!-- dash -->
+    <div class="dash" id="div_dash">
+        <span id="titulocombatente"></span>
+    </section>
+</body>
+</html>
+
+<script>
+
+    function inserirPoder() {
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var qtdPoder = valorPoder.value;
+
+        if (valorPoder == "") {
+            alert("Preencha o campo de valor");
+            return false;
+        }
+
+        // Enviando o valor da nova input
+        fetch("/Combate/inserirPoder", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                poderServer: qtdPoder
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("Poder inserido")
+
+                limparFormulario();
+            } else {
+                throw ("Houve um erro ao tentar inserir poder");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+    // exibirCombate gráficos
+    let proximaAtualizacao;
+
+    function alterarTitulo(idCombatente) {
+        var tituloCombatente = document.getElementById(`titulocombatente${idCombatente}`)
+        titulocombatente.innerHTML = "O combatente " + idCombatente + "ganhou!"
+    }
+
+    async function exibirCombate(idCombatente) {
+        let todosOsGraficos = document.getElementById("graficos")
+        var res = await fetch(`/Combate/combate/${idCombatente}`)
+        var dados = await res.json();
+        var jsonCargaHeroiVilao = dados[0];
+        for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+            // exibindo - ou não - o gráfico
+            let elementoAtual = document.getElementById(`grafico${i}`)
+            if (elementoAtual.classList.contains("display-block")) {
+                elementoAtual.classList.remove("display-block")
+            }
+            elementoAtual.classList.add("display-none")
+            
+        }
+        // exibindo - ou não - o gráfico
+        let graficoexibirCombate = document.getElementById(`grafico${idCombatente}`)
+        graficoexibirCombate.classList.remove("display-none")
+        graficoexibirCombate.classList.add("display-block")
+        
+        
+    }
+
+       // FUNÇÃO Obter Dados
+    function obterDadosGrafico(idCombatente) {
+
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
+
+        fetch(`/Combate/combate/${idCombatente}`, {cache: 'no-store'}).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(idCombatente, resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+   
+    function plotarGrafico(idCombatente, poderes) {
+
+        if(idCombatente == 1) {
+            div_dash.innerHTML = `  
+            <span id="titulocombatente"></span>
+        <div id="graficos">
+            <div id="grafico1" class="display-block">
+                <h3 class="tituloGraficos">
+                    <span id="tituloCombatente"></span>
+                </h3>
+                <div class="graph">
+                    <canvas id="myChartCanvas1"></canvas>
+                </div>
+            </div>`
+        } else if(idCombatente == 2) {
+            div_dash.innerHTML = ` <div id="grafico2" class="display-block">
+                <h3 class="tituloGraficos">
+                    <span id="tituloCombatente"></span>
+                </h3>
+                <div class="graph">
+                    <canvas id="myChartCanvas2"></canvas>
+                </div>
+            </div>`;
+        } else if (idCombatente == 3) {
+            div_dash.innerHTML = ` <div id="grafico3" class="display-block">
+                <h3 class="tituloGraficos">
+                    <span id="tituloCombatente"></span>
+                </h3>
+                <div class="graph">
+                    <canvas id="myChartCanvas3"></canvas>
+                </div>
+            </div>`;
+        } else if (idCombatente == 4) {
+            div_dash.innerHTML = ` <div id="grafico4" class="display-block">
+                <h3 class="tituloGraficos">
+                    <span id="tituloCombatente"></span>
+                </h3>
+                <div class="graph">
+                    <canvas id="myChartCanvas4"></canvas>
+                </div>
+            </div>`
+        }
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: ["Comparação poderes"],
+            datasets: [{
+                label: 'Combatente',
+                data: [poderes[0].cargaPoder],
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            },
+            {
+                label: 'Vilão',
+                data: [poderes[0].cargaPoderVilao],
+                fill: false,
+                borderColor: 'rgb(199, 52, 52)',
+                tension: 0.1
+            }]
+        };
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        new Chart(
+            document.getElementById(`myChartCanvas${idCombatente}`),
+            config  
+        );
+    }
+</script>

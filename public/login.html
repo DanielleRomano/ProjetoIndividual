@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/83c9b26057.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Login</title>
+</head>
+<body>
+    <body class="body-login">
+
+        <!-- nav-bar -->
+        <header>
+            <nav>
+            <a href="./index.html">
+                <img class="logo" src="./imgs/header.PNG">
+            </a>
+            <ul class="nav-list">
+                <li><a href="./index.html">Ínicio</a></li></a>
+                <li><a href="./index.html">Sobre</a></li></a>
+                <li><a href="./index.html">Jogos</a></li></a>
+                <li><a href="./index.html">Personagens</a></li></a>
+                <li><a href="./cadastro.html" class="client"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
+            </ul>
+        </nav>
+        </header>
+
+        <!-- section-login -->
+
+        <section class="section-login">
+            <div class="login">
+                <div class="div-login">
+                    <b class="log">Login</b></div>
+                    <div>
+                </div>
+                <div class="div-imagem-log">
+                    <img class="imagem-login" src="imgs/img-login.PNG">
+                </div>
+                <hr class="hr1">
+                <form class="form-login">
+                    <span class="email-form-log"><b>E-mail:</b></span>
+                    <input id="email_input" class="input-email-log" required>
+                    <span class="senha-form-log">Senha:</span>
+                    <input id="senha_input" class="input-senha-log" type="password" required>
+                    <button onclick="entrar()" class="button-login"><b>Entrar</b></button>
+                    <div>
+                        <span class="text-cadastrar">Ainda não possui cadastro? <a href="./cadastro.html" style="color: black
+                        ;">Cadastrar</a></span>
+                    </div>
+                </form>
+            </div>
+        </section>
+</body>
+</html>
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            alert ("Preencha todos os campos");
+            return false;
+        }
+
+        fetch("/Usuario/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location.href = "./pesquisa.html";
+                    },1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>

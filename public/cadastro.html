@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/83c9b26057.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <link href="/Projeto-Individual/public/js/funcoes.js">
+    <title>Cadastro</title>
+</head>
+<body class="body-cadastro">
+
+    <!-- nav-bar -->
+    <header>
+        <nav>
+        <a href="./index.html">
+            <img class="logo" src="./imgs/header.PNG">
+        </a>
+        <ul class="nav-list">
+            <li><a href="./index.html">Ínicio</a></li></a>
+            <li><a href="./index.html/">Sobre</a></li></a>
+            <li><a href="./index.html">Jogos</a></li></a>
+            <li><a href="./index.html">Personagens</a></li></a>
+            <li><a href="./cadastro.html" class="client"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <!-- section-cadastro -->
+
+    <section class="section-cadastro">
+        <div class="cadastro">
+            <div class="div-cad">
+                <b class="cad">Cadastre-se</b></div>
+                <div>
+                <span class="text-cad">e se divirta com as meninas superpoderosas!</span>
+            </div>
+            <div class="div-imagem">
+                <img class="imagem-cadastro" src="./imgs/cadastro.PNG">
+            </div>
+            <hr class="hr1">
+            <form class="form-cadastro">
+                <span class="nome-form">Nome Completo:</span>
+                <input id="input_nome" class="input-nome" required>
+                <span class="dtnasc-form">Data de nascimento:</span>
+                <input id="input_dtnasc" class="input-dtnasc" type="date" required>
+                <span class="email-form">E-mail:</span>
+                <input id="input_email"  class="input-email" required>
+                <span class="senha-form">Senha:</span>
+                <input id="input_senha" class="input-senha" type="password" required>
+                <button class="button-cad" onclick="cadastrar()"><b>Cadastrar</b></button>
+                <div>
+                    <span class="text-log">Já possui cadastro? <a href="./login.html" style="color: black;"> Entrar</a></span>
+                </div>
+            </form>
+        </div>
+
+    </section>
+
+</body>
+</html>
+
+<script>
+
+    function cadastrar() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_nome.value;
+        var dataVar = input_dtnasc.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        if (nomeVar == "" || dataVar == "" ||emailVar == "" || senhaVar == "") {
+            alert("Preencha todos os campos");
+            return false;
+        }
+
+        // Enviando o valor da nova input
+        fetch("/Usuario/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                dataServer: dataVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert("Cadastro realizado!")
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, "2000")
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+</script>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/83c9b26057.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css"/>
+    <title>As Meninas SuperPoderosas</title>
+</head>
+<body>
+    <header>
+        <nav>
+        <a href="./index.html">
+            <img class="logo" src="./imgs/header.PNG">
+        </a>
+        <ul class="nav-list">
+            <li><a href="./index.html">Ínicio</a></li></a>
+            <li><a href="#section_sobre">Sobre</a></li></a>
+            <li><a href="#section_jogos">Jogos</a></li></a>
+            <li><a href="./pesquisa.html">Pesquisa</a></li></a>
+            <li><a href="cadastro.html" class="client"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
+        </ul>
+    </nav>
+    </header>
+    
+    <!-- Florzinha -->
+    <main>
+    <section class="section-inicial">
+        <div class="section-image1">
+            <img class="image1" src="./imgs/inicio.PNG">
+        </div>
+        <aside>
+            <h1 class="title-inicio">Açúcar, tempero e tudo que há de bom!</h1>
+            <p class="text-inicio">
+                Conheça o fantástico mundo das Meninas SuperPoderosas
+            </p>
+            <b><a href="#section_sobre" class="button-text-inicio"><button class="button-inicio">Vamos lá!</b></a></button>
+        </aside>
+    </section>
+</main>
+
+    <!-- Docinho -->
+    <section id="section_sobre" class="section-sobre">
+        <div class="title-section-sobre">
+            <b class="title-sobre">Sobre</b>
+        </div>
+        <div class="text-section-sobre">
+            <span class="text-sobre">A história das Meninas Superpoderosas começou quando acidentalmente o professor Utônio derrubou o elemento X em sua mistura.<br><br></span>
+
+            <iframe width="400" height="280" style="margin-top: 40px;" src="https://www.youtube.com/embed/YeSGS6NETmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <aside class="aside-sobre">
+            <img class="image2" src="./imgs/sobre.PNG">
+        </aside>
+    </section>
+
+    <!-- Lindinha -->
+    <section id="section_jogos" class="section-jogos">
+        <button class="nome-jogos"><b>Jogos</b></button>
+        <div class="section-image1">
+            <img class="image3" src="./imgs/jogos.PNG">
+        </div>
+        <aside>
+            <span class="text-jogos">Quer se divertir com as meninas superpoderosas?</span>
+            <p class="text-cadastro">
+                Cadastre-se e jogue jogos incríveis!
+            </p>
+            <a href="/cadastro.html"><button class="button-jogos"><b class="button-text-cadastro">Cadastre-se</b></button></a>
+        </aside>
+    </section>
+
+    <!-- carrossel -->
+    <section id="section_carrossel" class="carrossel">
+        
+        <button class="title-personagem"><b>Personagens</b></button>
+            <div class="div-carrossel" id="div_p1">
+            <section class="personagem">
+            <div class="div-img-p1">
+                <img class="img-p1" src="./imgs/lindinha.PNG">
+            </div>
+
+            <div class="nome-personagem"><b>Lindinha</b></div>
+            <div class="cat-personagem1">
+            <span class="cat-per"><b>Categoria: </b>heroina</span></div>
+            <button class="btn-mais" onclick="verMais(personagem1)"><b>Ver mais</b></button>
+            <button onclick="favoritarp1()" class="btn-favoritar"><b>Favoritar</b></button>
+        </section>
+        </div>
+        
+
+        <div id="fade" class="hide"></div>
+        <div id="modal" class="hide">
+            <div class="modal-container">
+                <div class="modal-conteudo">
+                    <button class="btn-close" onclick="toggleModal()"><b>Fechar</b></button>
+                    <h2 id="modal_titulo"class="h2-p1"></h2>
+                    <div id="div_infos" class="div-modal"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="div_p2" class="div-carrossel2">
+            <section class="personagem">
+            <div class="div-img-p3">
+                <img class="img-p2" src="./imgs/florzinha.PNG">
+            </div>
+            <div class="nome-personagem"><b>Florzinha</b></div>
+            <div class="cat-personagem">
+                <span class="cat-per"><b>Categoria: </b>heroina</span></div>
+            <button class="btn-mais" onclick="verMais(personagem2)"><b>Ver mais</b></button>
+            <button onclick="favoritarp2()" class="btn-favoritar"><b>Favoritar</b></button>
+        </section>
+        </div>
+
+
+        <div class="div-carrossel3">
+            <section class="personagem">
+            <div class="div-img-p3">
+                <img class="img-p3" src="./imgs/docinho.png">
+            </div>
+            <div class="nome-personagem"><b>Docinho</b></div>
+            <div class="cat-personagem3">
+                <span class="cat-per"><b>Categoria: </b>heroina</span></div>
+            <button class="btn-mais" onclick="verMais(personagem3)"><b>Ver mais</b></button>
+            <button onclick="favoritarp3()" class="btn-favoritar"><b>Favoritar</b></button>
+        </section>
+        </div>
+
+
+        <div class="div-carrossel4">
+            <section class="personagem">
+            <div class="div-img-p3">
+                <img class="img-p4" src="./imgs/macacolouco.PNG">
+            </div>
+            <div class="nome-personagem4"><b>Macaco Louco</b></div>
+            <div class="cat-personagem">
+                <span class="cat-per"><b>Categoria: </b>vilão</span></div>
+            <button class="btn-mais" onclick="verMais(personagem4)"><b>Ver mais</b></button>
+            <button onclick="favoritarp4()" class="btn-favoritar"><b>Favoritar</b></button>
+        </section>
+        </div>
+
+        <div class="div-carrossel5">
+            <section class="personagem">
+            <div class="div-img-p5">
+                <img class="img-p5" src="./imgs/ele.GIF">
+            </div>
+            <div class="nome-personagem5"><b>Ele</b></div>
+            <div class="cat-personagem">
+                <span class="cat-per"><b>Categoria: </b>vilão</span></div>
+            <button class="btn-mais" onclick="verMais(personagem5)"><b>Ver mais</b></button>
+            <button onclick="favoritarp5()" class="btn-favoritar"><b>Favoritar</b></button>
+        </section>
+        </div>
+
+        <div class="div-carrossel6">
+            <section class="personagem">
+            <div class="div-img-p3">
+                <img class="img-p6" src="./imgs/utonio.PNG">
+            </div>
+            <div class="nome-personagem6"><b>Utônio</b></div>
+            <div class="cat-personagem">
+                <span class="cat-per"><b>Categoria: </b>pai</span></div>
+            <button class="btn-mais" onclick="verMais(personagem6)"><b>Ver mais</b></button>
+            <button onclick="favoritarp6()" class="btn-favoritar"><b>Favoritar</b></button>
+        </section>
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+    <!-- Rodape -->
+    <section class="rodape">
+        <img class="img-rodape" src="./imgs/footer.PNG">
+        <div class="desenvolvedor">Desenvolvido por Danielle Romano</div>
+    </section>
+</body>
+</html>
+
+<script>
+    function favoritarp1() {
+        section_carrossel.style.backgroundColor = '#62C1F3';
+    }
+
+    function favoritarp2() {
+        section_carrossel.style.backgroundColor = '#E86786';
+    }
+
+    function favoritarp3() {
+        section_carrossel.style.backgroundColor = '#2B9746';
+    }
+
+    function favoritarp4() {
+        section_carrossel.style.backgroundColor = '#c692e6';
+    }
+
+    function favoritarp5() {
+        section_carrossel.style.backgroundColor = '#970b0b';
+    }
+
+    function favoritarp6() {
+        section_carrossel.style.backgroundColor = '#ebeba3';
+    }
+
+</script>
