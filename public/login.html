@@ -10,7 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css"/>
+    <link href="./fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+    <link href="./fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="./fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
     <link rel="stylesheet" href="login.css"/>
+    <link rel="stylesheet" href="cadastro.css"/>
     <title>Login</title>
 </head>
 <body>
@@ -44,7 +48,7 @@
                     <img class="imagem-login" src="imgs/img-login.PNG">
                 </div>
                 <hr class="hr1">
-                <form class="form-login">
+                <div class="form-login">
                     <span class="email-form-log"><b>E-mail:</b></span>
                     <input id="email_input" class="input-email-log" required>
                     <span class="senha-form-log">Senha:</span>
@@ -54,9 +58,15 @@
                         <span class="text-cadastrar">Ainda não possui cadastro? <a href="./cadastro.html" style="color: black
                         ;">Cadastrar</a></span>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
+
+        <!-- Rodape -->
+      <div class="rodape-cadastro">
+        <img class="img-rodape" src="./imgs/footer.PNG">
+        <div class="desenvolvedor">Desenvolvido por Danielle Romano</div>
+      </div>
 </body>
 </html>
 
@@ -97,7 +107,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location.href = "./pesquisa.html";
+                        window.location.href = "jogos.html";
                     },1000); // apenas para exibir o loading
 
                 });

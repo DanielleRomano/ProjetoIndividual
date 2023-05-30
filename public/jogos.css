@@ -1,0 +1,163 @@
+body {
+    background-color: #62C1F3;
+}
+
+.title-opcao {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 560px;
+    width: 566px;
+    height: 80px;
+    left: 454px;
+    background: #000000;
+    border-radius: 40px;
+    color: white;
+    font-size: 30px;
+}
+
+.container-combate {
+    position: absolute;
+    width: 340px;
+    height: 440px;
+    left: 249px;
+    top: 260px;
+    background: #FFFFFF;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-jogo1 {
+    position: absolute;
+    width: 240px;
+    height: 198px;
+    top: 30px;
+}
+
+.title-combate {
+    position: absolute;
+    font-size: 26px;
+    color: #000000;
+    margin: 40px;
+    bottom: 90px;
+}
+
+.button-combate {
+    display: flex;
+    position: absolute;
+    width: 240px;
+    height: 50px;
+    background: #000000;
+    border-radius: 40px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    left: 52px;
+    bottom: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-memoria {
+    position: absolute;
+    width: 340px;
+    height: 440px;
+    left: 900px;
+    top: 260px;
+    background: #FFFFFF;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.title-memoria {
+    position: absolute;
+    margin: 50px;
+    font-size: 24px;
+    color: #000000; 
+    bottom: 70px;
+}
+
+.button-memoria {
+    display: flex;
+    position: absolute;
+    width: 240px;
+    height: 50px;
+    background: #000000;
+    border-radius: 40px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    bottom: 30px;
+    left: 52px;
+    align-items: center;
+    justify-content: center;   
+}
+
+.img-jogo2 {
+    position: absolute;
+    width: 240px;
+    height: 198px;
+    top: 30px;
+}
+
+footer{
+    background-color: var(--color-primary);
+    margin-top: 10px;
+    display: flex;
+    padding: 30px;
+    justify-content: space-evenly;
+}
+
+.icons{
+    width: 60px;
+}
+
+ul li{
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.list-menu-footer li:nth-child(6){
+    margin-bottom: 20px;
+}
+
+.list-menu-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-small{
+    width: 250px;
+}
+
+.footer-title{
+    color: var(--color-light);
+    font-weight: bold;
+    font-size: larger;
+}
+
+span{
+    color: white;
+    font-weight: bold;
+}
+
+.footer-contact{
+    display: flex;
+    flex-direction: column;
+}
+
+.list-media{
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px;
+}

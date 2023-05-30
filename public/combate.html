@@ -11,9 +11,13 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="path/to/chartjs/dist/chart.umd.js"></script>
+    <link href="./fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+    <link href="./fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+    <link href="./fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="cadastro.css"/>
     <link rel="stylesheet" href="combate.css"/>
-    <title>Pesquisa</title>
+    <title>Combate</title>
 </head>
 <body class="body-pesquisa">
     <header>
@@ -64,7 +68,7 @@
     </section>
 
     <!-- Rodape -->
-    <section class="rodape">
+    <section class="rodape-cadastro
         <img class="img-rodape" src="./imgs/footer.PNG">
         <div class="desenvolvedor">Desenvolvido por Danielle Romano</div>
     </section>
@@ -173,7 +177,7 @@
                 <div class="graph">
                     <canvas id="myChartCanvas1"></canvas>
                 </div>
-                <div><h4>A personagem Lindinha venceu o Macaco louco por ${diferenca}%</h4></div>
+                <div><h4>A personagem Lindinha venceu o Macaco louco por %</h4></div>
             </div>`
         } else if(idCombatente == 2) {
             div_dash.innerHTML = ` <div id="grafico2" class="display-block">
@@ -183,7 +187,7 @@
                 <div class="graph">
                     <canvas id="myChartCanvas2"></canvas>
                 </div>
-                <div><h4>A personagem Florzinha venceu o Macaco louco por ${diferenca}%</h4></div>
+                <div><h4>A personagem Florzinha venceu o Macaco louco por %</h4></div>
             </div>`;
         } else if (idCombatente == 3) {
             div_dash.innerHTML = ` <div id="grafico3" class="display-block">
@@ -193,7 +197,7 @@
                 <div class="graph">
                     <canvas id="myChartCanvas3"></canvas>
                 </div>
-                <div><h4>A personagem Docinho venceu o Macaco louco por ${diferenca}%</h4></div>
+                <div><h4>A personagem Docinho venceu o Macaco louco por %</h4></div>
             </div>`;
         } else if (idCombatente == 4) {
             div_dash.innerHTML = ` <div id="grafico4" class="display-block">
@@ -203,7 +207,7 @@
                 <div class="graph">
                     <canvas id="myChartCanvas4"></canvas>
                 </div>
-                <div><h4>Você venceu o Macaco louco por ${diferenca}%</h4></div>
+                <div><h4>Você venceu o Macaco louco por %</h4></div>
             </div>`
         }
 
