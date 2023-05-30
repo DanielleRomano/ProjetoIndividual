@@ -1,14 +1,14 @@
 const grid = document.querySelector('.grid');
 
-const fotos = [
-    'foto1',
-    'foto1',
-    'foto1',
-    'foto1',
-    'foto1',
-    'foto1',
-    'foto1',
-    'foto1',
+const itens = [
+    'crayon',
+    'oculos',
+    'patinho',
+    'polvi',
+    'radio',
+    'telefone',
+    'trofeu',
+    'videogame',
 ];
 
 const createElement = (tag, className) => {
@@ -17,19 +17,22 @@ const createElement = (tag, className) => {
     return element;
 }
 
+let firstCard = '';
+let secondCard = '';
+
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
-    if(disabledCards.length == 20){
+    if(disabledCards.length === 16){
         alert("E mais uma vez o quarto foi arrumado por você e pelas Meninas SuperPoderosas");
     }
 }
 
 const checkCards = () => {
-    const firstFoto = firstCard.getAttribute('data-fotos');
-    const secondFoto = secondCard.getAttribute('data-fotos');
+    const firstItem = firstCard.getAttribute('data-fotos');
+    const secondItem = secondCard.getAttribute('data-fotos');
 
-    if(firstFoto == secondFoto) {
+    if(firstItem === secondItem) {
         firstCard.firstChild.classList.add('disabled-card');
         secondCard.firstChild.classList.add('disabled-card');
 
@@ -39,62 +42,64 @@ const checkCards = () => {
         checkEndGame();
 
     } else {
-        setTimeout(() => {firstCard.classList.remove('reveal-card');
+        setTimeout(() => {
+
+        firstCard.classList.remove('reveal-card');
         secondCard.classList.remove('reveal-card');
+
         firstCard = '';
         secondCard = '';
-}, 500)
+
+        }, 500)
     }
 
 }
 
-let firstCard = '';
-let secondCard = '';
-
-const reavealcard = ({target}) => {
+const revealCard = ({target}) => {
 
     if(target.parentNode.className.includes('reveal-card')) {
         return;
     }
 
-    if(firstCard == '') {
+    if(firstCard === '') {
+
     target.parentNode.classList.add('reveal-card');
     firstCard = target.parentNode;
-    } else if (secondCard == '') {
+
+    } else if (secondCard === '') {
+
     target.parentNode.classList.add('reveal-card');
     secondCard = target.parentNode;
 
     checkCards();
     }
-
-    target.parentNode.classList.add('reveal-card');
 }
 
-const createCard = (foto) => {
+const createCard = (item) => {
     const card = createElement('div', 'card');
     const front = createElement('div', 'face front');
     const back = createElement('div', 'face back');
 
-    front.style.backgroundImage = `url(../fotos/${foto})`
+    front.style.backgroundImage = `url(./jogo/${item}.jpeg)`
 
     card.appendChild(front);
     card.appendChild(back);
 
-    card.addEventListener('click', reavealcard);
-    card.setAttribute('data-fotos', fotos);
+    card.addEventListener('click', revealCard);
+    card.setAttribute('data-fotos', item);
 
    return card;
 }
 
 const loadGame = () => {
-    const duplicateFotos = [...fotos, ...fotos];
+    const duplicateItens = [...itens, ...itens];
 
-    const shufledArray = duplicateFotos.sort(() => Math.random() - 0.5);
+    const shufledArray = duplicateItens.sort(() => Math.random() - 0.5);
 
 
-    shufledArray.forEach((foto) => {
+    shufledArray.forEach((item) => {
 
-        const card = createCard(foto);
+        const card = createCard(item);
         grid.appendChild(card);
     });
 }

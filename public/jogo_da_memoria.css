@@ -2,7 +2,7 @@
     display: grid;
     width: 100%;
     max-width: 800px;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 15px;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .back {
-    background-image: url(../fotos/DSC02402.JPG);
+    background-image: url(./imgs/back.jpg);
     backface-visibility: hidden;
 }
 
