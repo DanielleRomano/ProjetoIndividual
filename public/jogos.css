@@ -108,56 +108,9 @@ body {
 }
 
 footer{
-    background-color: var(--color-primary);
-    margin-top: 10px;
+    background-color: #E86786;
+    margin-top: 700px;
     display: flex;
     padding: 30px;
     justify-content: space-evenly;
-}
-
-.icons{
-    width: 60px;
-}
-
-ul li{
-    list-style-type: none;
-    font-weight: bold;
-}
-
-.list-menu-footer li:nth-child(6){
-    margin-bottom: 20px;
-}
-
-.list-menu-footer{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin: 0;
-    padding: 0;
-}
-
-.logo-small{
-    width: 250px;
-}
-
-.footer-title{
-    color: var(--color-light);
-    font-weight: bold;
-    font-size: larger;
-}
-
-span{
-    color: white;
-    font-weight: bold;
-}
-
-.footer-contact{
-    display: flex;
-    flex-direction: column;
-}
-
-.list-media{
-    flex-direction: row;
-    margin-top: 20px;
-    gap: 20px;
 }

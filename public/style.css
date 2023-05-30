@@ -26,6 +26,7 @@ a {
     color: white;
     text-decoration: none;
     transition: 0.3s;
+    font-weight: bold;
 }
 
 a:hover {
@@ -534,20 +535,53 @@ main {
     box-shadow: 10px 10px black;
 }
 
-.img-rodape {
-    width: 160px;
-    height: 160px;
-    padding-top: 30px;
-    margin-left: 1300px;
-}
-
-.rodape {
-    width: 1528px;
-    height: 220px;
+.footer-index{
     background-color: #E86786;
+    display: flex;
+    padding: 30px;
+    justify-content: space-evenly;
 }
 
-.desenvolvedor {
-    padding-left: 100px;
+.icons{
+    width: 60px;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+.list-menu-footer li:nth-child(6){
+    margin-bottom: 20px;
+}
+
+.list-menu-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-small{
+    width: 100px;
+}
+
+.footer-title{
+    font-size: larger;
+}
+
+.span-text{
+    color: white;
+}
+
+.footer-contact{
+    display: flex;
+    flex-direction: column;
+}
+
+.list-media{
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px;
 }
 

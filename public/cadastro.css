@@ -147,9 +147,10 @@
     font-size: 14px;
 }
 
-.rodape-cadastro {
-    width: 1528px;
-    height: 220px;
+.footer-cadastro{
     background-color: #E86786;
     margin-top: 100px;
+    display: flex;
+    padding: 30px;
+    justify-content: space-evenly;
 }
