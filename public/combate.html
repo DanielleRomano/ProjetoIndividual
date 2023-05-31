@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="path/to/chartjs/dist/chart.umd.js"></script>
+    <script src="../src/models/combateModel.js"></script>
     <link href="./fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
     <link href="./fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
     <link href="./fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
@@ -129,11 +130,6 @@
     // exibirCombate gráficos
     let proximaAtualizacao;
 
-    function alterarTitulo(idCombatente) {
-        var tituloCombatente = document.getElementById(`titulocombatente${idCombatente}`)
-        titulocombatente.innerHTML = "O combatente " + idCombatente + "ganhou!"
-    }
-
     async function exibirCombate(idCombatente) {
         let todosOsGraficos = document.getElementById("graficos")
         var res = await fetch(`/Combate/combate/${idCombatente}`)
@@ -179,6 +175,8 @@
    
     function plotarGrafico(idCombatente, poderes) {
 
+        var diferenca = poderes[0].cargaPoder - poderes[0].poderCargaVilao;
+
         if(idCombatente == 1) {
             div_dash.innerHTML = `  
             <span id="titulocombatente"></span>
@@ -190,8 +188,8 @@
                 <div class="graph">
                     <canvas id="myChartCanvas1"></canvas>
                 </div>
-                <div><h4>A personagem Lindinha venceu o Macaco louco por %</h4></div>
-            </div>`
+            </div>
+            <a href="combate.html"><button class="button-cn" style="background-color: #0A6BA7;"><b>Jogar Novamente</b></button></a>`
         } else if(idCombatente == 2) {
             div_dash.innerHTML = ` <div id="grafico2" class="display-block">
                 <h3 class="tituloGraficos">
@@ -200,8 +198,8 @@
                 <div class="graph">
                     <canvas id="myChartCanvas2"></canvas>
                 </div>
-                <div><h4>A personagem Florzinha venceu o Macaco louco por %</h4></div>
-            </div>`;
+            </div>
+            <a href="combate.html"><button class="button-cn" style="background-color: #E80758;"><b>Jogar Novamente</b></button></a>`;
         } else if (idCombatente == 3) {
             div_dash.innerHTML = ` <div id="grafico3" class="display-block">
                 <h3 class="tituloGraficos">
@@ -210,8 +208,8 @@
                 <div class="graph">
                     <canvas id="myChartCanvas3"></canvas>
                 </div>
-                <div><h4>A personagem Docinho venceu o Macaco louco por %</h4></div>
-            </div>`;
+            </div>
+            <a href="combate.html"><button class="button-cn" style="background-color: #2B9746;"><b>Jogar Novamente</b></button></a>`;
         } else if (idCombatente == 4) {
             div_dash.innerHTML = ` <div id="grafico4" class="display-block">
                 <h3 class="tituloGraficos">
@@ -220,8 +218,16 @@
                 <div class="graph">
                     <canvas id="myChartCanvas4"></canvas>
                 </div>
-                <div><h4>Você venceu o Macaco louco por %</h4></div>
-            </div>`
+            </div>
+            <a href="combate.html"><button class="button-cn" style="background-color: #75ebe3;"><b>Jogar Novamente</b></button></a>`
+        }
+
+        if(poderes[0].cargaPoder > poderes[0].poderCargaVilao) {
+            div_dash.innerHTML += `<div><h4>O combatente venceu o Macaco louco por ${diferenca} pontos de poder</h4></div>`;
+        } else if (poderes[0].cargaPoder == poderes[0].poderCargaVilao) {
+            div_dash.innerHTML += `<div><h4>Houve um empate! A diferença de poder foi ${diferenca} pontos de poder</h4></div>`;
+        } else {
+            div_dash.innerHTML += `<div><h4>O combatente foi derrotado, a diferença foi de ${diferenca} pontos de poder</h4></div>`;
         }
 
         var cor = '';
@@ -233,9 +239,7 @@
             cor = '#2B9746';
         } else if (idCombatente == 4) {
             cor = '#75ebe3';
-        } else if (idCombatente == 5) {
-            cor = '#75ebe3';
-        }
+        } 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: ["Comparação poderes"],
@@ -267,5 +271,6 @@
             document.getElementById(`myChartCanvas${idCombatente}`),
             config  
         );
+        return;
     }
 </script>

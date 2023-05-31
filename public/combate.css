@@ -5,7 +5,7 @@
 .section-pesquisa {
     background-color: white;
     width: 1200px;
-    height: 600px;
+    height: 620px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -174,7 +174,7 @@
     width: 480px;
     position: absolute;
     top: 400px;
-    left: 880px;
+    left: 840px;
   }
 
 .graph {
@@ -183,3 +183,24 @@
     margin: auto;
     padding-top: 10px;
   }
+
+.button-cn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 30px;
+    left: 140px;
+    top: 260px;
+    border-radius: 40px;
+    color: white;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.button-cn:hover {
+    opacity: 0.8;
+}

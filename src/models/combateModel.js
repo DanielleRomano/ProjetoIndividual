@@ -25,6 +25,8 @@ function combate(idCombatente) {
         instrucaoSql = `select cargaPoder, poderCargaVilao from combatente join vilao on idVilao = fkVilao
         where combatente.idCombatente = ${idCombatente};`
 
+        diferenca = `select cargaPoder - poderCargaVilao from combatente join vilao on idVilao = fkVilao where combatente.idCombatente = ${idCombatente};`
+
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
