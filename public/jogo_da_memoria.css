@@ -1,18 +1,40 @@
+body {
+    background-color: #62C1F3;
+}
+
+.title-encontre {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 566px;
+    height: 60px;
+    left: 468px;
+    background: #000000;
+    border-radius: 40px;
+    color: white;
+    font-size: 22px;
+    bottom: 580px;
+}
+
 .grid {
     display: grid;
     width: 100%;
     max-width: 800px;
     grid-template-columns: repeat(6, 1fr);
     gap: 15px;
+    margin: 100px auto;
+    top: 20px;
 }
 
 .card {
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 1/1;
     border-radius: 5px;
     position: relative;
     transition: all 400ms ease;
     transform-style: preserve-3d;
+    border: none;
 }
 
 .face {
@@ -31,8 +53,12 @@
 }
 
 .back {
-    background-image: url(./imgs/back.jpg);
+    background-image: url(./imgs/bac.jpg);
     backface-visibility: hidden;
+}
+
+.back .background-image {
+    width: 100px;
 }
 
 .reveal-card {
@@ -42,4 +68,34 @@
 .disabled-card {
     filter: saturate(0);
     opacity: 0.4;
+}
+
+.button-jn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 40px;
+    left: 616px;
+    bottom: 60px;
+    background: #128d3d;
+    border-radius: 40px;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-jn:hover {
+    opacity: 0.8;
+    background-color: #53d480;
+}
+
+.footer-memoria {
+    background-color: #E86786;
+    margin-top: 180px;
+    display: flex;
+    padding: 30px;
+    justify-content: space-evenly;
 }

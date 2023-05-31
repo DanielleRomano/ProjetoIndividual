@@ -7,8 +7,9 @@ const itens = [
     'polvi',
     'radio',
     'telefone',
-    'trofeu',
-    'videogame',
+    'pinguim',
+    'despertador',
+    'mochila'
 ];
 
 const createElement = (tag, className) => {
@@ -23,7 +24,7 @@ let secondCard = '';
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
-    if(disabledCards.length === 16){
+    if(disabledCards.length === 18){
         alert("E mais uma vez o quarto foi arrumado por você e pelas Meninas SuperPoderosas");
     }
 }
