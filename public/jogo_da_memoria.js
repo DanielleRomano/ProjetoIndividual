@@ -27,7 +27,10 @@ const checkEndGame = () => {
     if(disabledCards.length === 18){
         alert("E mais uma vez o quarto foi arrumado por você e pelas Meninas SuperPoderosas");
     }
+
 }
+
+var listarCartas = [];
 
 const checkCards = () => {
     const firstItem = firstCard.getAttribute('data-fotos');
@@ -37,8 +40,18 @@ const checkCards = () => {
         firstCard.firstChild.classList.add('disabled-card');
         secondCard.firstChild.classList.add('disabled-card');
 
+        listarCartas.push(firstItem);
+
         firstCard = '';
         secondCard = '';
+
+        const div = document.querySelector('#div_listaCartas');
+        
+        const lista = Array(listarCartas);
+        for (var i = listarCartas.length; i > 0; i--) {
+            div.innerHTML = `<b>Os itens que você achou foram:</b><br>`
+            div.innerHTML += `${lista[i-1]}`
+        }
 
         checkEndGame();
 

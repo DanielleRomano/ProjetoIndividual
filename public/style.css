@@ -520,6 +520,24 @@ main {
     opacity: 0.8;
 }
 
+.btn-favoritos {
+    position: absolute;
+    width: 600px;
+    height: 40px;
+    color: white;
+    font-size: 12px;
+    background: #924bae;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    top: 2280px;
+}
+
+.btn-favoritos:hover {
+    opacity: 0.8;
+    background-color: #c991e7;
+}
+
 .title-personagem {
     position: relative;
     width: 380px;
@@ -555,15 +573,16 @@ main {
     background-color: #E86786;
     display: flex;
     justify-content: space-evenly;
+    padding: 20px;
 }
 
 ul li{
     list-style-type: none;
 }
 
-/* .list-menu-footer li:nth-child(6){
+.list-menu-footer li:nth-child(6){
     margin-bottom: 20px;
-} */
+}
 
 .list-menu-footer{
     display: flex;

@@ -1,4 +1,3 @@
-//const openModalButton = document.querySelector("#openModal");
 const closeModalButton = document.querySelector("#closeModal");
 const modal = document.querySelector("#modal");
 const fade = document.querySelector("#fade");
@@ -35,11 +34,6 @@ fade.addEventListener("click", () => toggleModal());
         nome: "Utônio",
         sobre: "Professor Utônio é o criador(pai) das meninas. Ama ciência e dedica sua vida em experiências cientìficas. Sua maior e mais orgulhosa criação foram as meninas. Ama sua família e faz de tudo por ela."
     };
-
-
-
-
-
 
 function verMais(personagem){
     modal_titulo.innerHTML = personagem.nome;
