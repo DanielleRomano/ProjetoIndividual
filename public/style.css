@@ -259,6 +259,7 @@ main {
     border-radius: 60px;
     bottom: 100px;
     left: 60px;
+    box-shadow: 3px 2px 1px #797676;
 }
 
 .div-carrossel2 {
@@ -269,6 +270,7 @@ main {
     border-radius: 60px;
     bottom: 100px;
     left: 160px;
+    box-shadow: 3px 2px 1px #797676;
 }
 
 .div-carrossel3 {
@@ -279,6 +281,7 @@ main {
     border-radius: 60px;
     bottom: 100px;
     left: 250px;
+    box-shadow: 3px 2px 1px #797676;
 }
 
 .div-carrossel4 {
@@ -289,6 +292,7 @@ main {
     border-radius: 60px;
     top: 160px;
     right: 560px;
+    box-shadow: 3px 2px 1px #797676;
 }
 
 .div-carrossel5 {
@@ -299,6 +303,7 @@ main {
     border-radius: 60px;
     top: 160px;
     right: 460px;
+    box-shadow: 3px 2px 1px #797676;
 }
 
 .div-carrossel6 {
@@ -309,6 +314,7 @@ main {
     border-radius: 60px;
     top: 160px;
     right: 360px;
+    box-shadow: 3px 2px 1px #797676;
 }
 
 .div-img-p1{

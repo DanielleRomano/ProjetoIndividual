@@ -12,6 +12,7 @@
     border-radius: 60px;
     margin-left: 160px;
     margin-top: 35px;
+    box-shadow: 3px 2px 1px #797676;
 }
 
 .cad {
@@ -20,10 +21,7 @@
     height: 46px;
     left: 360px;
     bottom: 550px;
-    font-weight: 700;
     font-size: 40px;
-    line-height: 49px;
-
 }
 
 .text-cad {
@@ -42,8 +40,7 @@
     position: absolute;
     width: 600px;
     left: 180px;
-    top: 200px;
-
+    top: 199.5px;
 }
 
 .hr1 {
@@ -142,7 +139,7 @@
     position: absolute;
     width: 345px;
     height: 32px;
-    left: 974px;
+    left: 980px;
     top: 620px;
     font-size: 14px;
 }
