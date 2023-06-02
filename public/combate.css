@@ -20,12 +20,12 @@
     top: 120px;
 }
 
-.imagem-pesquisa {
+.imagem-combate {
     border-radius: 40px;
-    width: 420px;
+    width: 600px;
     position: absolute;
-    top: 180px;
-    left: 260px;
+    top: 140px;
+    left: 210px;
 }
 
 .btn-combatente1 {

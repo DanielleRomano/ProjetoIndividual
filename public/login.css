@@ -89,9 +89,18 @@
     position: absolute;
     width: 345px;
     height: 32px;
-    left: 340px;
+    left: 330px;
     top: 580px;
     font-size: 14px;
+}
+
+.imagem-login {
+    width: 1000px;
+}
+
+.div-imagem-log {
+    padding-left: 200px;
+    padding-top: 130px;
 }
 
 .footer-login{
