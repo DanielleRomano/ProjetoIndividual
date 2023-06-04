@@ -15,6 +15,13 @@
     box-shadow: 3px 2px 1px #797676;
 }
 
+.img-frase-comb {
+    position: absolute;
+    width: 60px;
+    top: 220px;
+    left: 186px;
+}
+
 .title-pesquisa {
     position: absolute;
     font-size: 34px;
@@ -26,7 +33,7 @@
     width: 600px;
     position: absolute;
     top: 140px;
-    left: 210px;
+    left: 240px;
 }
 
 .btn-combatente1 {
@@ -193,7 +200,7 @@
     width: 160px;
     height: 30px;
     left: 140px;
-    top: 260px;
+    top: 270px;
     border-radius: 40px;
     color: white;
     font-size: 14px;

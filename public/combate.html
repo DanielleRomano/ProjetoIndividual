@@ -117,7 +117,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                console.log("Poder inserido")
+                alert("Poder inserido, escolha o seu combatente!")
             } else {
                 throw ("Houve um erro ao tentar inserir poder");
             }
@@ -223,11 +223,11 @@
         }
 
         if(poderes[0].cargaPoder > poderes[0].poderCargaVilao) {
-            div_dash.innerHTML += `<div><h4>O combatente venceu o Macaco louco por ${diferenca} pontos de poder</h4></div>`;
+            div_dash.innerHTML += `<div><h4>O combatente venceu o Macaco louco por ${diferenca} pontos</h4><img class="img-frase-comb" src="./imgs/ganhou.PNG"></div>`;
         } else if (poderes[0].cargaPoder == poderes[0].poderCargaVilao) {
-            div_dash.innerHTML += `<div><h4>Houve um empate! A diferença de poder foi ${diferenca} pontos de poder</h4></div>`;
+            div_dash.innerHTML += `<div><h4>Houve um empate! A diferença de poder foi ${diferenca} pontos</h4><img class="img-frase-comb" src="./imgs/empatou.PNG"></div>`;
         } else {
-            div_dash.innerHTML += `<div><h4>O combatente foi derrotado, a diferença foi de ${diferenca} pontos de poder</h4></div>`;
+            div_dash.innerHTML += `<div><h4>O combatente foi derrotado, a diferença foi de ${diferenca} pontos</h4><img class="img-frase-comb" src="./imgs/perdeu.PNG"></div>`;
         }
 
         var cor = '';
